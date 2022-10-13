@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        *{
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10 and IE 11 */
+            user-select: none; /* Standard syntax */
+        }
+        @media screen  and (max-width:899px){
+        body{
+            font-family: 'Roboto', sans-serif;
+     
+        }
+        img{
+            display: none;
+        }
+        .container{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .todolist{
+            padding: 30px;
+            border-radius:10px;
+            background-color:white;
+            width: 100%;
+        }
+        #area{
+            resize: none;
+            background-color:rgb(214, 214, 214);
+            outline: none;
+            border: none;
+            font-size: 1rem;
+            padding: 10px;
+            width: 100%;
+            font-family: 'Roboto', sans-serif;
+        }
+        .input{
+            display: flex;
+        }
+        button{
+            color: white;
+            background-color: rgb(184, 68, 251);
+            border:none;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            width: 25px;
+            text-align: center;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        h1{
+            margin: 0px;
+        }
+        h4{
+            margin-top: 0px;
+        }
+        .content{
+            list-style-type: none;      
+            padding: 0px;
+            text-align: start;
+            
+        }
+        .content-area{
+            display: flex;
+            width: 70%;
+        }
+        .content-area2{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        li{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+
+        }
+        p{
+            margin-right: 100px;
+            overflow: hidden;
+        }
+        .btn{
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .btn:hover{
+            border-radius: 10px;
+            font-size: 20px;
+            background-color: red;
+        }
+        #area2{
+            resize: none;
+            outline: none;
+            border: none;
+            font-size: 1rem;
+            padding: 10px;
+            font-family: 'Roboto', sans-serif;
+        }     
+        }
+        @media screen and (min-width:900px){
+            body{
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+
+           }
+        .image{
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        img{
+            height: 80%;
+            width: 100%;
+            display: block;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            padding: 50px;
+        }
+        .todolist{
+            padding: 10px;
+            border-radius:10px;
+            background-color:white;
+            width: 100%;
+        }
+        #area{
+            resize: none;
+            background-color:rgb(214, 214, 214);
+            outline: none;
+            border: none;
+            font-size: 1rem;
+            padding: 10px;
+            width: 100%;
+            font-family: 'Roboto', sans-serif;
+        }
+        .input{
+            display: flex;
+        }
+        button{
+            color: white;
+            background-color: rgb(184, 68, 251);
+            border:none;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            width: 25px;
+            text-align: center;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        h1{
+            margin: 0px;
+        }
+        h4{
+            margin-top: 0px;
+        }
+        .content{
+            list-style-type: none;      
+            padding: 0px;
+            text-align: start;
+            
+        }
+        .content-area{
+            display: flex;
+            width: 70%;
+        }
+        .content-area2{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        li{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+
+        }
+        p{
+            margin-right: 100px;
+            overflow: hidden;
+        }
+        .btn{
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .btn:hover{
+            border-radius: 10px;
+            font-size: 20px;
+            background-color: red;
+        }
+        #area2{
+            resize: none;
+            outline: none;
+            border: none;
+            font-size: 1rem;
+            padding: 10px;
+            font-family: 'Roboto', sans-serif;
+        }     
+        }
+            
+        
+   
+    </style>
+</head>
+<body>
+    <div class="image">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/96701e99535677.5ef4c71eb11ca.jpg" alt="no img">
+    </div>
+    <div class="container">
+        <div class="todolist">
+            <h1>Todo WebApp</h1>
+            <h4>list here your task</h4>
+            <div class="input">
+                <textarea name="" id="area" placeholder="text here..." cols="30" rows="1"></textarea>
+                <button onclick="ADD()">+</button>
+            </div>
+            <ul class="content">
+                
+            </ul>
+        </div>
+    </div>
+    <script>
+        const areaVal = document.querySelector('#area')
+        const ul = document.querySelector('ul')
+        
+        function ADD(){
+            ul.innerHTML += `<li>
+                    <div class="content-area">
+                        <input class='check' type="checkbox">
+                        <textarea name="" id="area2" cols="28" rows="1">${areaVal.value}</textarea>
+                    </div>
+                    <div class="content-area2">
+                        <button class="btn">x</button>
+                    </div>
+                </li>`
+        }
+        
+        ul.addEventListener('click',function(e){
+            if (e.target.classList.contains('btn')){
+                e.target.parentElement.parentElement.remove()
+            }
+        })
+    </script>
+</body>
+</html>
